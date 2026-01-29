@@ -1,2 +1,2 @@
-# anyone-here-data
-Data pipeline &amp; analytics for location-based service “Anyone Here”
+##Anyone Here##는 드라이브 스팟에 현재 사람들이 있는지를 실시간으로 보여주는 위치 기반 웹 서비스입니다.
+본 레포지토리는 Anyone Here 서비스에서 사용되는 데이터 처리 및 집계 로직을 담당합니다.
