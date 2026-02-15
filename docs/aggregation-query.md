@@ -1,3 +1,4 @@
+```sql
 INSERT INTO spot_presence (spot_id, active_user_count, calculated_at)
 SELECT 
     s.spot_id,
@@ -14,3 +15,4 @@ GROUP BY s.spot_id
 ON DUPLICATE KEY UPDATE
     active_user_count = VALUES(active_user_count),
     calculated_at = VALUES(calculated_at);
+```
