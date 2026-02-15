@@ -1,3 +1,11 @@
+## Spot Active User Aggregation Query
+
+- 최근 10분 내 위치 로그 기준
+- 스팟 반경 내 사용자 수 집계
+- 동일 user는 1명으로 계산
+- spot_presence 테이블에 upsert
+
+
 ```sql
 INSERT INTO spot_presence (spot_id, active_user_count, calculated_at)
 SELECT 
