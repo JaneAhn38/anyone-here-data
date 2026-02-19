@@ -35,4 +35,40 @@ spot_presence는 location_logs를 기반으로
 
 
 
+##Database Setup
+이 레포지토리의 SQL 스크립트는 로컬 MySQL 8.x 환경을 기준으로 합니다.
+​
+
+1. 스키마 생성 (01_schema.sql)
+sql/01_schema.sql은 anyoneheredb 데이터베이스와 테이블 구조를 생성하는 스크립트입니다.
+
+bash
+# MySQL 설치 경로에 따라 bin 디렉터리로 이동 (예시)
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+# 01_schema.sql 실행 (경로는 환경에 맞게 수정)
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\01_schema.sql"
+mysql -u root -p 부분은 사용하는 MySQL 계정에 맞게 변경할 수 있습니다.
+
+01_schema.sql 파일의 위치가 다르면, 마지막 인자로 넘기는 파일 경로를 환경에 맞게 수정해야 합니다.
+
+2. 샘플 데이터 적재 (02_seed_sample_data.sql)
+sql/02_seed_sample_data.sql은 sample-data/ 디렉터리의 CSV를 anyoneheredb에 적재하는 스크립트입니다.
+
+bash
+# MySQL bin 디렉터리에서 실행 (경로는 예시)
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+# 02_seed_sample_data.sql 실행 (경로는 환경에 맞게 수정)
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\02_seed_sample_data.sql"
+경로는 환경에 맞게 수정해야 합니다
+현재 스크립트는 CSV가 다음 경로에 있다고 가정합니다.
+
+sql
+LOAD DATA INFILE
+'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/AnyoneHere/sample-data/spots.csv'
+INTO TABLE spots
+...
+운영체제, MySQL 설치 위치, 클론한 디렉터리 위치에 따라 다음이 달라질 수 있습니다.
+
 
