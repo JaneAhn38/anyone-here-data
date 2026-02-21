@@ -81,6 +81,30 @@ secure_file_priv 설정에 따라 경로가 달라질 수 있습니다.
 환경에 맞게 수정해야 합니다.
 
 
+### MySQL 스크립트 실행 순서
+
+이 프로젝트의 샘플 데이터베이스는 `/sql` 디렉터리의 스크립트로 초기화할 수 있습니다.
+
+#### 1) 사전 준비
+
+- MySQL 8.x 설치
+- SQL/CSV 파일 경로 예시:
+  - `C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\sql\`
+
+#### 2) 스크립트 실행
+
+터미널/CMD에서 MySQL bin 디렉터리로 이동한 뒤, 아래 순서대로 실행합니다.
+
+```bash
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\sql\01_tables.sql"
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\sql\02_load_sample_data.sql"
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\sql\03_compute_spot_presence.sql"
+mysql -u root -p < "C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\AnyoneHere\sql\04_view_spot_status.sql"
+
+
+
 ## Notes
 
 - 본 레포지토리는 데이터 처리 및 집계 로직을 담당합니다.
