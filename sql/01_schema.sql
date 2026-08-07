@@ -32,7 +32,7 @@ Create Table: CREATE TABLE `users` (
 
 Create Table: CREATE TABLE `location_logs` (
   `log_id` int NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(10) NOT NULL,
+  `user_id` varchar(30) NOT NULL,
   `latitude` double DEFAULT NULL,
   `longitude` double DEFAULT NULL,
   `logged_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
